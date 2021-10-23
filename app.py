@@ -17,6 +17,8 @@ def posts_page(post_id):
     return render_template("post.html", comments=comments, post_id=post_id)
 
 
+@app.route('/search/')
+def search():
 
 
 
