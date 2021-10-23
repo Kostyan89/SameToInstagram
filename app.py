@@ -9,11 +9,12 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/posts/<int:pk>')
-def posts_page(pk):
+@app.route('/posts/<int:post_id>')
+def posts_page(post_id):
     with open ('data.json', 'r') as f:
         comments = json.load(f)
-    return render_template("post.html", comments=comments)
+
+    return render_template("post.html", comments=comments, post_id=post_id)
 
 
 
