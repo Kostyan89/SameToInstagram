@@ -17,11 +17,6 @@ def posts_page(post_id):
     return render_template("post.html", comments=comments, post_id=post_id)
 
 
-@app.route('/search/')
-def search():
-
-
-
 @app.errorhandler(404)
 def page_not_found(e):
     return "Страница не найдена, но всё не так  плохо как кажется! Выпей чаю и через 5 мин попробуй еще раз"
