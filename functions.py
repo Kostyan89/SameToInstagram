@@ -18,9 +18,19 @@ def read_comments():
 
 
 def get_post_by_id(post_id):
+    for post in read_data():
+        if post['pk'] == post_id:
+            return post
+
+
+def get_comments_by_post_id(post_id):
+    comments = []
     for comm in read_comments():
         if comm['post_id'] == post_id:
-            return comm
+            comments.append(comm)
+    return comments
+
+
 
 
 def get_posts_by_word(word):

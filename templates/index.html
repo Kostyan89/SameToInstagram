@@ -24,6 +24,7 @@
   </header>
   <main class="container">
     <section class="items">
+      {{for post in posts}}
       <div class="items__item item">
         <div class="item__top">
           <a href="/user-feed.html" class="item__head">
@@ -33,7 +34,7 @@
             <span class="item__username">Johnny</span>
           </a>
         </div>
-        <a href="/post.html" class="item__post-link">
+        <a href="/posts/{{post.pk}}" class="item__post-link">
           <img src="static/img/post1.jpg" alt="" width="348" class="item__post-img">
         </a>
         <p class="item__descr">Текст описания коротки...</p>
@@ -105,6 +106,7 @@
           </button>
         </div>
       </div>
+      {{endfor}}
     </section>
   </main>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
