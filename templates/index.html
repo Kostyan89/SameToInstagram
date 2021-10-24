@@ -24,14 +24,14 @@
   </header>
   <main class="container">
     <section class="items">
-      {{for post in posts}}
+      {% for post in posts %}
       <div class="items__item item">
         <div class="item__top">
-          <a href="/users/{{posts.poster_name}}" class="item__head">
+          <a href="/users/{{post.poster_name}}" class="item__head">
             <div class="item__ava-wrap">
               <img src="/static/img/ava1.png" alt="" class="item__ava" width="47">
             </div>
-            <span class="item__username">{{posts.poster_name}}</span>
+            <span class="item__username">{{post.poster_name}}</span>
           </a>
         </div>
         <a href="/posts/{{post.pk}}" class="item__post-link">
@@ -42,7 +42,7 @@
           <p class="item__comments-counter">{{comments | length}}</p>
           <div class="item__counter">
             <img src="/static/img/eye.png" alt="" class="item__counter-icon" width="26">
-            <span class="item__counter-text">{{posts.views_count}}</span>
+            <span class="item__counter-text">{{post.views_count}}</span>
           </div>
         </div>
         <div class="item__post-bottom">
@@ -52,7 +52,7 @@
           </button>
         </div>
       </div>
-      {{endfor}}
+      {% endfor %}
     </section>
   </main>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
