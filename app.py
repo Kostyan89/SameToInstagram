@@ -9,10 +9,15 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/posts/<int:pk>')
-def post_page(pk):
-    posts = get_posts()
-    return render_template("post.html", posts=posts, post_id=post_id)
+@app.route('/posts/<int:post_id>')
+def page_index(post_id):
+    comm = get_post_by_id(post_id)
+    print(post_id)
+    return render_template('post.html', comm=comm)
+
+
+
+
 
 
 
