@@ -23,6 +23,10 @@ def get_post_by_id(post_id):
             return comm
 
 
+def get_post_by_word(word):
+    for post in read_data():
+        if word in post["content"]:
+            return post
 
 
 

@@ -12,8 +12,17 @@ def index():
 @app.route('/posts/<int:post_id>')
 def page_index(post_id):
     comm = get_post_by_id(post_id)
-    print(post_id)
     return render_template('post.html', comm=comm)
+
+
+@app.route('/search/s=<word>')
+def post_search(word):
+    post = get_post_by_word(word)
+    print(post)
+    return render_template('search.html', post=post)
+
+
+
 
 
 
