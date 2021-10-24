@@ -31,6 +31,7 @@
       <p class="search__results">Найдено постов: 11</p>
     </div>
     <section class="items">
+      {% for post in posts %}
       <div class="items__item item">
         <div class="item__top">
           <a href="/user-feed.html" class="item__head">
@@ -58,6 +59,7 @@
           </button>
         </div>
       </div>
+      {% endfor %}
     </section>
   </main>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
