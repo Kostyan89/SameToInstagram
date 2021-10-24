@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 import json
-
+from functions import *
 app = Flask(__name__)
 
 
@@ -9,12 +9,12 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/posts/<int:post_id>')
-def posts_page(post_id):
-    with open ('data.json', 'r') as f:
-        comments = json.load(f)
+@app.route('/posts/<int:pk>')
+def post_page(pk):
+    posts = get_posts()
+    return render_template("post.html", posts=posts, post_id=post_id)
 
-    return render_template("post.html", comments=comments, post_id=post_id)
+
 
 
 @app.errorhandler(404)
