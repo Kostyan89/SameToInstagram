@@ -6,7 +6,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    posts = get_posts()
+    comments = get_comments()
+    return render_template('index.html', posts=posts, comments=comments)
 
 
 @app.route('/posts/<int:post_id>')
@@ -34,4 +36,5 @@ def page_not_found(e):
     return "Страница не найдена, но всё не так  плохо как кажется! Выпей чаю и через 5 мин попробуй еще раз"
 
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run()

@@ -31,8 +31,6 @@ def get_comments_by_post_id(post_id):
     return comments
 
 
-
-
 def get_posts_by_word(word):
     for post in read_data():
         if word in post["content"]:
@@ -45,14 +43,11 @@ def get_posts_of_user(username):
             return post
 
 
+def get_posts():
+    posts = read_data()
+    return posts
 
 
-
-
-
-
-
-
-
-
-
+def get_comments():
+    comments = read_comments()
+    return comments
