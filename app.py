@@ -16,12 +16,15 @@ def page_index(post_id):
 
 
 @app.route('/search/s=<word>')
-def post_search(word):
-    post = get_post_by_word(word)
-    print(post)
-    return render_template('search.html', post=post)
+def page_search(word):
+    posts = get_posts_by_word(word)
+    return render_template('search.html', posts=posts)
 
 
+@app.route('/users/<username>')
+def page_users(username):
+    posts = get_posts_of_user(username)
+    return render_template('user-feed.html', posts=posts)
 
 
 

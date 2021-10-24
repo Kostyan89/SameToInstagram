@@ -23,10 +23,17 @@ def get_post_by_id(post_id):
             return comm
 
 
-def get_post_by_word(word):
+def get_posts_by_word(word):
     for post in read_data():
         if word in post["content"]:
             return post
+
+
+def get_posts_of_user(username):
+    for post in read_data():
+        if post["poster_name"] == username:
+            return post
+
 
 
 
