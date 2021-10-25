@@ -26,50 +26,50 @@
   <main class="container">
     <section class="items">
       {% for post in posts %}
-      <div class="items__item item item--post">
-        <div class="item__top">
-          <a href="{{/posts/{{pk}}}}" class="item__head">
-            <div class="item__ava-wrap">
-              <img src="{{post.poster_avatar}}" alt="" class="item__ava" width="47">
-            </div>
-            <span class="item__username">{{post.poster_name}}</span>
+        <div class="items__item item item--post">
+          <div class="item__top">
+            <a href="/posts/{{pk}}" class="item__head">
+              <div class="item__ava-wrap">
+                <img src="{{post.poster_avatar}}" alt="" class="item__ava" width="47">
+              </div>
+              <span class="item__username">{{post.poster_name}}</span>
+            </a>
+            <button type="button" class="item__bookmark-btn">
+              <img src="/static/img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
+            </button>
+          </div>
+          <a href="" class="item__post-link">
+            <img src="{{post.pic}}" alt="" width="348" class="item__post-img">
           </a>
-          <button type="button" class="item__bookmark-btn">
-            <img src="/static/img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
-          </button>
-        </div>
-        <a href="" class="item__post-link">
-          <img src="{{post.pic}}" alt="" width="348" class="item__post-img">
-        </a>
-        <div class="item__descr">
-          <p class="item__text">{{post.content}}</p>
-        </div>
-        <div class="item__bottom">
-          <div class="item__post-info">
-            <p class="item__comments-counter">{{comments | length}}</p>
-            <div class="item__counter">
-              <img src="/static/img/eye.png" alt="" class="item__counter-icon" width="26">
-              <span class="item__counter-text">{{post.views_count}}</span>
-            </div>
+          <div class="item__descr">
+            <p class="item__text">{{post.content}}</p>
           </div>
-          <div class="item__comments">
-            {% for comm in comments %}
-            <p class="item__comment">
-              <b>{{comm.commenter_name}}</b> {{comm.comment}}
-            </p>
-            {% endfor %}
+          <div class="item__bottom">
+            <div class="item__post-info">
+              <p class="item__comments-counter">{{comments | length}}</p>
+              <div class="item__counter">
+                <img src="/static/img/eye.png" alt="" class="item__counter-icon" width="26">
+                <span class="item__counter-text">{{post.views_count}}</span>
+              </div>
+            </div>
+            <div class="item__comments">
+              {% for comm in comments %}
+                <p class="item__comment">
+                  <b>{{comm.commenter_name}}</b> {{comm.comment}}
+                </p>
+              {% endfor %}
+            </div>
+            <form action="/" class="item__comment-form comment-form">
+              <div class="comment-form__input-wrap">
+                <input type="search" class="comment-form__input" placeholder="Ваше имя">
+              </div>
+              <div class="comment-form__input-wrap">
+                <textarea class="comment-form__textarea" placeholder="Ваш комментарий" rows="6"></textarea>
+              </div>
+              <button type="submit" class="comment-form__btn">Отправить</button>
+            </form>
           </div>
-          <form action="/" class="item__comment-form comment-form">
-            <div class="comment-form__input-wrap">
-              <input type="search" class="comment-form__input" placeholder="Ваше имя">
-            </div>
-            <div class="comment-form__input-wrap">
-              <textarea class="comment-form__textarea" placeholder="Ваш комментарий" rows="6"></textarea>
-            </div>
-            <button type="submit" class="comment-form__btn">Отправить</button>
-          </form>
         </div>
-      </div>
       {% endfor %}
     </section>
   </main>
