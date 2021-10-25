@@ -33,7 +33,7 @@ def get_comments_by_post_id(post_id):
 
 def get_posts_by_word(word):
     for post in read_data():
-        if word in post["content"]:
+        if word.lower() in post["content"].lower():
             return post
 
 
