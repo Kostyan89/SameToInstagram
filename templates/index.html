@@ -35,9 +35,9 @@
           </a>
         </div>
         <a href="/posts/{{post.pk}}" class="item__post-link">
-          <img src="/static/img/post1.jpg" alt="" width="348" class="item__post-img">
+          <img src="/static/img/post{{post.pk}}.jpg" alt="" width="348" class="item__post-img">
         </a>
-        <p class="item__descr">{{post.content}}</p>
+        <p class="item__descr">{{post.content[:50]}}...</p>
         <div class="item__post-info">
           <p class="item__comments-counter">{{comments | length}}</p>
           <div class="item__counter">

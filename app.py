@@ -20,15 +20,15 @@ def page_index(post_id):
 
 @app.route('/search')
 def page_search(word):
-    searching_word = request.args.get["s"]
+    searching_word = request.args.get("s")
     posts = get_posts_by_word(word)
     return render_template('search.html', posts=posts, word=searching_word)
 
 
 @app.route('/users/<username>')
 def page_users(username):
-    posts = get_posts_of_user(username)
-    return render_template('user-feed.html', posts=posts)
+    users_posts = get_posts_of_user(username)
+    return render_template('user-feed.html', users_posts=users_posts)
 
 
 @app.errorhandler(404)
