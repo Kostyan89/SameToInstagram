@@ -44,12 +44,12 @@
         <a href="/posts/{{post.pk}}" class="item__post-link">
           <img src="/static/img/post5.jpg" alt="" width="348" class="item__post-img">
         </a>
-        <p class="item__descr"><a href="/tag.html" class="item__tag">#food</a> Текст описания коротки...</p>
+        <p class="item__descr"><a href="/tag.html" class="item__tag">#food</a> {{post.content[:50]}}...</p>
         <div class="item__post-info">
-          <p class="item__comments-counter">13 комментариев</p>
+          <p class="item__comments-counter">{{comments | length}}</p>
           <div class="item__counter">
             <img src="/static/img/eye.png" alt="" class="item__counter-icon" width="26">
-            <span class="item__counter-text">212</span>
+            <span class="item__counter-text">{{post.views_count}}</span>
           </div>
         </div>
         <div class="item__post-bottom">

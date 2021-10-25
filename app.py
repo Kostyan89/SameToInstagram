@@ -22,7 +22,8 @@ def page_index(post_id):
 def page_search(word):
     searching_word = request.args.get("s")
     posts = get_posts_by_word(word)
-    return render_template('search.html', posts=posts, word=searching_word)
+    comments = get_comments()
+    return render_template('search.html', posts=posts, word=searching_word, comments=comments)
 
 
 @app.route('/users/<username>')
