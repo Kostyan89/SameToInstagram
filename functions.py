@@ -33,12 +33,11 @@ def get_comments_by_post_id(pk):
 
 def get_posts_by_word(word, pk):
     posts_list = []
-    for post in read_comments():
+    posts = get_posts()
+    for post in posts:
         if word.lower() in post["content"].lower():
             posts_list.append(post)
-    for post in get_posts():
-        post["comments_count"] = get_comments_by_post_id(pk)
-    return posts_list
+    return posts_list[:10], posts
 
 
 def get_posts_by_username(username):
@@ -61,4 +60,3 @@ def get_posts():
 def get_comments():
     comments = read_comments()
     return comments
-
