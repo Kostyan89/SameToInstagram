@@ -28,8 +28,8 @@ def page_search(word):
 
 @app.route('/users/<username>')
 def page_users(username):
-    users_posts = get_posts_of_user(username)
-    return render_template('user-feed.html', users_posts=users_posts)
+    users_posts = get_posts_by_username(username)
+    return render_template('user-feed.html', users_posts=users_posts, )
 
 
 @app.errorhandler(404)
@@ -38,4 +38,4 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-    app.run(port=8000)
+    app.run()

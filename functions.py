@@ -37,7 +37,7 @@ def get_posts_by_word(word):
             return post
 
 
-def get_posts_of_user(username):
+def get_posts_by_username(username):
     users_posts = []
     for post in read_data():
         if post["poster_name"] == username:
