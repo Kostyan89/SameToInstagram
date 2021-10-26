@@ -42,7 +42,7 @@ def get_posts_by_username(username):
     for post in read_data():
         if post["poster_name"] == username:
             users_posts.append(post)
-            return users_posts
+    return users_posts
 
 
 def get_posts():
