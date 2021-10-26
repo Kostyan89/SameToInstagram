@@ -19,10 +19,10 @@ def page_index(post_id):
 
 
 @app.route('/search')
-def page_search(word, pk):
+def page_search(word):
     searching_word = request.args.get("s")
-    posts = get_posts_by_word(word, pk)
-    return render_template('search.html', posts=posts, word=searching_word)
+    posts = get_posts_by_word(word)
+    return render_template('search.html', posts=posts)
 
 
 @app.route('/users/<username>')
