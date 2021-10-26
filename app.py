@@ -19,9 +19,9 @@ def page_index(post_id):
 
 
 @app.route('/search')
-def page_search(word):
+def page_search():
     searching_word = request.args.get("s")
-    posts = get_posts_by_word(word)
+    posts = get_posts_by_word(searching_word)
     return render_template('search.html', posts=posts)
 
 
