@@ -23,19 +23,21 @@ def get_post_by_id(post_id):
             return post
 
 
-def get_comments_by_post_id(post_id):
-    comments = []
-    for comm in read_comments():
-        if comm['post_id'] == post_id:
-            comments.append(comm)
-    return comments
+def get_comments_by_post_id(pk):
+    all_comments = []
+    for comm in read_data():
+        if comm["pk"] == pk:
+            all_comments.append(comm)
+    return all_comments
 
 
-def get_posts_by_word(word):
+def get_posts_by_word(word, pk):
     posts_list = []
-    for post in read_data():
+    for post in read_comments():
         if word.lower() in post["content"].lower():
             posts_list.append(post)
+    for post in get_posts():
+        post["comments_count"] = get_comments_by_post_id(pk)
     return posts_list
 
 
@@ -48,8 +50,12 @@ def get_posts_by_username(username):
 
 
 def get_posts():
-    posts = read_data()
-    return posts
+    data = read_data()
+    results = []
+    for post in data:
+        post["comments_count"] = len(get_comments_by_post_id(post["pk"]))
+        results.append(post)
+    return results
 
 
 def get_comments():
