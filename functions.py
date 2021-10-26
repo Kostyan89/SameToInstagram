@@ -31,13 +31,13 @@ def get_comments_by_post_id(pk):
     return all_comments
 
 
-def get_posts_by_word(word, pk):
+def get_posts_by_word(word):
     posts_list = []
     posts = get_posts()
     for post in posts:
         if word.lower() in post["content"].lower():
             posts_list.append(post)
-    return posts_list[:10], posts
+    return posts_list[:10]
 
 
 def get_posts_by_username(username):
