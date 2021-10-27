@@ -7,8 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     results = get_posts()
-    comments = get_comments()
-    return render_template('index.html', posts=results, comments=comments)
+    return render_template('index.html', posts=results)
 
 
 @app.route('/posts/<int:post_id>')
@@ -22,6 +21,8 @@ def page_index(post_id):
 def page_search():
     searching_word = request.args.get("s")
     posts = get_posts_by_word(searching_word)
+    if not searching_word:
+        return "Такого слова не найдено, попробуйте еще раз", 404
     return render_template('search.html', posts=posts)
 
 

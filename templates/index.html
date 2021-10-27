@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SKYPROGRAM</title>
-  <link href="static/css/styles.min.css" rel="stylesheet">
+  <link href="/static/css/styles.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,13 +29,13 @@
         <div class="item__top">
           <a href="/users/{{post.poster_name}}" class="item__head">
             <div class="item__ava-wrap">
-              <img src="/static/img/ava1.png" alt="" class="item__ava" width="47">
+              <img src="{{post.poster_avatar}}" alt="" class="item__ava" width="47">
             </div>
             <span class="item__username">{{post.poster_name}}</span>
           </a>
         </div>
         <a href="/posts/{{post.pk}}" class="item__post-link">
-          <img src="/static/img/post{{post.pk}}.jpg" alt="" width="348" class="item__post-img">
+          <img src="{{post.pic}}.jpg" alt="" width="348" class="item__post-img">
         </a>
         <p class="item__descr">{{post.content[:50]}}...</p>
         <div class="item__post-info">

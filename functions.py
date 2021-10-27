@@ -55,8 +55,3 @@ def get_posts():
         post["comments_count"] = len(get_comments_by_post_id(post["pk"]))
         results.append(post)
     return results
-
-
-def get_comments():
-    comments = read_comments()
-    return comments
