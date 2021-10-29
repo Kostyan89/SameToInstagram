@@ -14,7 +14,7 @@ def index():
 def page_index(post_id):
     posts = get_post_by_id(post_id)
     comments = get_comments_by_post_id(post_id)
-    return render_template('post.html', comments=comments, post=posts)
+    return render_template('post.html', comments=comments, posts=posts)
 
 
 @app.route('/search')
