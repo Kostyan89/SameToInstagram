@@ -23,10 +23,10 @@ def get_post_by_id(post_id):
             return post
 
 
-def get_comments_by_post_id(pk):
+def get_comments_by_post_id(post_id):
     all_comments = []
-    for comm in read_data():
-        if comm["pk"] == pk:
+    for comm in read_comments():
+        if comm["post_id"] == post_id:
             all_comments.append(comm)
     return all_comments
 
@@ -42,7 +42,7 @@ def get_posts_by_word(word):
 
 def get_posts_by_username(username):
     users_posts = []
-    for post in read_data():
+    for post in get_posts():
         if post["poster_name"] == username:
             users_posts.append(post)
     return users_posts
