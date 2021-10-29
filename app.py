@@ -1,5 +1,4 @@
-import requests
-from flask import Flask, render_template, request, abort
+from flask import Flask, render_template, abort, request
 from functions import *
 app = Flask(__name__)
 
@@ -23,7 +22,7 @@ def page_post(post_id):
 def page_search():
     searching_word = request.args.get("s")
     if not searching_word:
-        abort(404)
+        abort(400)
     posts = get_posts_by_word(searching_word)
     return render_template('search.html', posts=posts)
 
