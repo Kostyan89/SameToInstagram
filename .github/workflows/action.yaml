@@ -42,4 +42,5 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
+            cd /code
             echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker-compose up -d
