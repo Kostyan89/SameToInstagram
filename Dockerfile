@@ -6,7 +6,7 @@ RUN pip install -r requirements.txt
 COPY app.py .
 COPY data data
 COPY static static
-COPY functions.py .docker
+COPY functions.py functions.py
 COPY templates templates
 
-CMD flask run -h 0.0.0.0 -p 80
+CMD python app.py

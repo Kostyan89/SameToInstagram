@@ -4,7 +4,4 @@ services:
   app:
     image: jokerred/flask-app:version-2
     ports:
-      - 8080:80
-    volumes:
-      - ./data.json:/code/data/data.json
-      - ./docker_config.py:/code/config.py
+      - "5000:5000"
